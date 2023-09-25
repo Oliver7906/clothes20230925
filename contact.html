@@ -586,7 +586,7 @@
                     console.log("test");
                     $.ajax({
                         type: "POST",
-                        url: "api/form_c_api.php",
+                        url: APILINKS +"form_c_api.php",
                         dataType: "json",
                         data: {
                             username: $("#user_name").val(),
@@ -596,7 +596,7 @@
                         },
                         success: showdata_reg,
                         error: function () {
-                            alert("表單輸入錯誤-http://localhost/api/form_c_api.php");
+                            alert("表單輸入錯誤-"+APILINKS +"form_c_api.php");
                             console.log($("#user_name").val());
                             console.log($("#phone").val());
                             console.log($("#mail").val());

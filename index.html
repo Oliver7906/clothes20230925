@@ -783,11 +783,11 @@
         $(function () {
             $.ajax({
                 type: "GET",
-                url: "api/index_charjs-api.php",
+                url: APILINKS +"index_charjs-api.php",
                 dataType: "json",
                 success: showdata,
                 error: function () {
-                    alert("error-api/index_charjs-api.php");
+                    alert("error-"+ APILINKS +"index_charjs-api.php");
                 }
             });
         });

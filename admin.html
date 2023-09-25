@@ -180,12 +180,12 @@
                 $(function () {
                     $.ajax({
                         type: "GET",
-                        url: "api/form_r_api.php",
+                        url: APILINKS +"form_r_api.php",
                         dataType: "json",
                         async: false,
                         success: showdata_mail,
                         error: function () {
-                            alert("串接資料錯誤-form_r_api.php");
+                            alert("串接資料錯誤-"+APILINKS +"form_r_api.php");
                         }
                     });
                 });

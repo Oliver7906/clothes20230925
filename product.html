@@ -474,12 +474,12 @@
     $(function () {
       $.ajax({
         type: "GET",
-        url: "api/product_r_api.php",
+        url: APILINKS +"product_r_api.php",
         dataType: "json",
 
         success: showdata,
         error: function () {
-          alert("error-api/product_r_api.php");
+          alert("error-"+APILINKS +"product_r_api.php");
         }
       });
     });
@@ -541,7 +541,7 @@
         }
         $.ajax({
           type: "POST",
-          url: "api/car_c_api.php",
+          url: APILINKS +"car_c_api.php",
           dataType: "json",
           data: {
             p_c_name: pName,
@@ -554,7 +554,7 @@
           },
           success: showdata_buy,
           error: function () {
-            alert("error-api/car_c_api.php");
+            alert("error-"+APILINKS +"car_c_api.php");
           },
         });
       } else {

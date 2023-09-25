@@ -498,7 +498,7 @@
                     var readstate, state_id;
                     const vm = this;
                     $.ajax({
-                        url: 'api/form_r_api.php',
+                        url: APILINKS +'form_r_api.php',
                         dataType: 'json',
                         success: function (data) {
                             console.log(data.data);
@@ -539,7 +539,7 @@
                         item.f_Active = 'Y';
 
                         $.ajax({
-                            url: 'api/form_u_api.php',
+                            url: APILINKS +'form_u_api.php',
                             method: 'POST',
                             data: {
                                 id: item.ID, // 傳遞要更新的資料ID
@@ -558,7 +558,7 @@
                     deleteContent(id) {
                         const vm = this;
                         $.ajax({
-                            url: 'api/form_d_api.php',
+                            url: APILINKS +'form_d_api.php',
                             method: 'POST',
                             data: {
                                 id: id // 傳送要刪除的id

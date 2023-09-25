@@ -366,7 +366,7 @@
             created() {
                 const vm = this;
                 $.ajax({
-                    url: 'api/car_r_api.php',
+                    url: APILINKS +'car_r_api.php',
                     dataType: 'json',
                     success: function (data) {
                         console.log(data.data);
@@ -453,7 +453,7 @@
                 getdelete(item) {
                     const vm = this;
                     $.ajax({
-                        url: 'api/car_d_api.php',
+                        url: APILINKS +'car_d_api.php',
                         data: { id: item.ID },
                         dataType: 'json',
                         success: function (data) {
@@ -470,7 +470,7 @@
                 deleteContent(id) {
                     const vm = this;
                     $.ajax({
-                        url: 'api/car_d_api.php',
+                        url: APILINKS +'car_d_api.php',
                         method: 'POST',
                         data: {
                             id: id // 发送要删除的数据的ID

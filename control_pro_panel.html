@@ -218,13 +218,13 @@
                 // 進入管理產品頁面
                 $.ajax({
                     type: "GET",
-                    url: "api/product_r_api.php",
+                    url: APILINKS +"product_r_api.php",
                     dataType: "json",
                     // async: 先關掉ajax，最後再執行。(按順序下去執行)
                     async: false,
                     success: showdata,
                     error: function () {
-                        alert("串接資料錯誤-product_r_api.php");
+                        alert("串接資料錯誤-"+APILINKS +"product_r_api.php");
                     }
                 });
 
@@ -318,12 +318,12 @@
                         }
                         $.ajax({
                             type: "POST",
-                            url: "api/product_u_product_api.php",
+                            url: APILINKS +"product_u_product_api.php",
                             data: { id: state_id, p_State: p_State },
                             dataType: "json",
                             success: showdata_u_p_State,
                             error: function () {
-                                alert("error-api/product_u_product_api.php");
+                                alert("error-"+APILINKS +"product_u_product_api.php");
                             }
                         });
 
@@ -347,7 +347,7 @@
                         if (flag_p_Name && flag_p_Price && flag_p_Text) {
                             $.ajax({
                                 type: "POST",
-                                url: "api/product_c_api.php",
+                                url: APILINKS +"product_c_api.php",
                                 dataType: "json",
                                 data: formData,
                                 // cache: false 禁用缓存，以确保每次请求都获取最新数据。
@@ -357,7 +357,7 @@
                                 processData: false,
                                 success: show_add_data,
                                 error: function () {
-                                    alert("error-product_c_api.php");
+                                    alert("error-"+APILINKS +"product_c_api.php");
                                 }
                             });
                         } else {
@@ -431,7 +431,7 @@
             // 將收集完成的資料formData 傳遞至api
             $.ajax({
                 type: "POST",
-                url: "api/file_img_api.php",
+                url: APILINKS +"file_img_api.php",
                 data: formData,
                 dataType: "json",
                 // cache: false 禁用缓存，以确保每次请求都获取最新数据。
@@ -441,7 +441,7 @@
                 processData: false,
                 success: showdata_uploadFile,
                 error: function () {
-                    alert("error-file_img_api.php");
+                    alert("error-"+APILINKS +"file_img_api.php");
                 }
             });
         }
@@ -499,7 +499,7 @@
                 //傳遞至 update api 執行更新
                 $.ajax({
                     type: "POST",
-                    url: "api/product_u_api.php",
+                    url: APILINKS +"product_u_api.php",
                     data: {
                         up_id: updateId,
                         p_Name: $("#up_Name").val(),
@@ -509,7 +509,7 @@
                     dataType: "json",
                     success: showdata_updata,
                     error: function () {
-                        alert("error-product_u_api.php");
+                        alert("error-"+APILINKS +"product_u_api.php");
                     }
                 });
                 uploadFile();
@@ -571,12 +571,12 @@
                     //傳遞至 delete api 執行刪除
                     $.ajax({
                         type: "POST",
-                        url: "api/product_d_api.php",
+                        url: APILINKS +"product_d_api.php",
                         data: { id: $(this).data("id") },
                         dataType: "json",
                         success: showdata_delete,
                         error: function () {
-                            alert("error-product_d_api.php");
+                            alert("error-"+APILINKS +"product_d_api.php");
                         }
                     });
                 }
