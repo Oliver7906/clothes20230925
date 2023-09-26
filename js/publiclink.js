@@ -1,4 +1,4 @@
-let APILINKS = 'https://tcnr202309.000webhostapp.com/api/';
+let APILINKS = 'https://tcnr202309.000webhostapp.com//public_html/api/';
 
 let LINKS = 'https://tcnr202309.000webhostapp.com/';
 
