@@ -167,7 +167,7 @@ function showdata_update_userchange(data) {
   console.log(data);
   if (data.state) {
     alert(data.message);
-    location.href = LINKS + "index.html";
+    location.href ="index.html";
   } else {
     alert(data.message);
   }

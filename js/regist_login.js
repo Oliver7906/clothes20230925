@@ -239,7 +239,7 @@ $(function () {
       //帳號被啟用
       if (data.data[0].userState == "Y") {
         //登入成功
-        // alert(data.message);
+        alert(data.message);
 
         //將uid01存入cookie
         setCookie("uid01", data.data[0].Uid, 7);
@@ -288,7 +288,6 @@ $(function () {
   function logout() {
     setCookie("uid01", "", 7);
     setCookie("level", " ", 7);
-    alert("已經登出");
-    location.href = LINKS + "index.html";
+    location.href = "index.html";
   }
 });
