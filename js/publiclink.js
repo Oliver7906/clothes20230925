@@ -1,6 +1,6 @@
 let APILINKS = 'https://tcnr202309.000webhostapp.com/api/';
 
-let LINKS = 'https://tcnr202309.000webhostapp.com/';
+let LINKS = 'https://github.com/Oliver7906/clothes20230925/blob/main/index.html';
 
 //set cookie (w3school)
 function setCookie(cname, cvalue, exdays) {
