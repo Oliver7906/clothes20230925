@@ -295,7 +295,7 @@
     </section>
     
     <!-- logout_Toasts -->
-    <section id="logout_toast_windows" class="d-none">
+    <section id="logout_toast_windows" class="">
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
             <div id="logout_Toasts" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
@@ -845,7 +845,7 @@
 
         ///login_Toasts 監聽按鈕
         const toastTrigger = document.getElementById('login_btn')
-        const toastLiveExample = document.getElementById('logout_toast_windows')
+        const toastLiveExample = document.getElementById('login_Toasts')
         if (toastTrigger) {
             toastTrigger.addEventListener('click', () => {
                 const toast = new bootstrap.Toast(toastLiveExample)
@@ -854,8 +854,16 @@
             });
         }
         
-     
-      
+        //logout_Toasts 監聽按鈕
+        const logout_toastTrigger = document.getElementById('logout_btn')
+        const logout_toastLiveExample = document.getElementById('logout_Toasts')
+        if (logout_toastTrigger) {
+            logout_toastTrigger.addEventListener('click', () => {
+                const logout_toast = new bootstrap.Toast(logout_toastLiveExample)
+
+                logout_toast.show();
+            });
+        }
     </script>
 </body>
 
