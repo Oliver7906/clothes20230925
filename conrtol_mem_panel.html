@@ -223,12 +223,12 @@
                     console.log($("#userphone").val());
                     console.log($("#useraddr").val());
                     console.log($("#usermail").val());
-                    console.log(USERID);
+                    console.log($(this).data('id'));
 
                     $.ajax({
                         type: "POST",
                         url: APILINKS + "admin_u_api.php",
-                        data: { id: USERID, userPhone: $("#userphone").val(), userAddr: $("#useraddr").val(), userMail: $("#usermail").val() },
+                        data: { id: $(this).data('id'), userPhone: $("#userphone").val(), userAddr: $("#useraddr").val(), userMail: $("#usermail").val() },
                         dataType: "json",
                         success: showdata_update,
                         error: function () {
