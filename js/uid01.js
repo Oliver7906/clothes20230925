@@ -80,10 +80,6 @@ $(function () {
   function logout() {
     setCookie("uid01", "", 7);
     setCookie("level", " ", 7);
-<<<<<<< HEAD
     location.href ="index.html";
-=======
-    location.href = "index.html";
->>>>>>> eb9c572723aef71d6a0f978593bc7241b2402426
   }
 });
