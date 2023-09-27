@@ -215,6 +215,7 @@
                     $("#userphone").val($(this).data("userphone"));
                     $("#useraddr").val($(this).data("useraddr"));
                     $("#usermail").val($(this).data("usermail"));
+                    u_id = $(this).data("id");
                 });
 
 
@@ -223,12 +224,12 @@
                     console.log($("#userphone").val());
                     console.log($("#useraddr").val());
                     console.log($("#usermail").val());
-                    console.log($(this).data('id').val());
+                    console.log(u_id);
 
                     $.ajax({
                         type: "POST",
                         url: APILINKS + "admin_u_api.php",
-                        data: { id: $(this).data('id').val(), userPhone: $("#userphone").val(), userAddr: $("#useraddr").val(), userMail: $("#usermail").val() },
+                        data: { id: u_id, userPhone: $("#userphone").val(), userAddr: $("#useraddr").val(), userMail: $("#usermail").val() },
                         dataType: "json",
                         success: showdata_update,
                         error: function () {
