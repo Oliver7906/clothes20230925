@@ -6,7 +6,7 @@ var Mail;
 var Addr;
 var Phone;
 var level;
-var totalPrice;
+
 //註冊同意書
 var flag_recheckbox = false;
 //註冊內容格式
@@ -232,7 +232,6 @@ $(function () {
     Mail = data.data[0].userMail;
     Addr = data.data[0].userAddr;
     Phone = data.data[0].userPhone;
-    totalPrice = data.data[0].Total;
     level = data.data[0].Level;
 
     if (data.state) {
