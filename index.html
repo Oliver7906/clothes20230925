@@ -294,22 +294,7 @@
         </div>
     </section>
     
-    <!-- logout_Toasts -->
-    <section id="logout_toast_windows" class="">
-        <div class="toast-container position-fixed bottom-0 end-0 p-3">
-            <div id="logout_Toasts" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <img src="images/index/logoko.png" style="height: 80px;width: 200px;" class="bg-dark rounded me-2"
-                        alt="">
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"
-                        data-bs-delay='{"show":0,"hide":6000}'></button>
-                </div>
-                <div class="toast-body">
-                    <h6 class="text-danger" id="out_toast_msg">已登出</h6>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- mssage user modal -->
     <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -854,16 +839,7 @@
             });
         }
         
-        //logout_Toasts 監聽按鈕
-        const logout_toastTrigger = document.getElementById('logout_btn')
-        const logout_toastLiveExample = document.getElementById('logout_Toasts')
-        if (logout_toastTrigger) {
-            logout_toastTrigger.addEventListener('click', () => {
-                const logout_toast = new bootstrap.Toast(logout_toastLiveExample)
 
-                logout_toast.show();
-            });
-        }
     </script>
 </body>
 
