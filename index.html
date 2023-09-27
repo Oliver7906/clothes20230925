@@ -854,8 +854,16 @@
             });
         }
         
-     
-      
+        //logout_Toasts 監聽按鈕
+        const logout_toastTrigger = document.getElementById('logout_btn')
+        const logout_toastLiveExample = document.getElementById('logout_Toasts')
+        if (logout_toastTrigger) {
+            logout_toastTrigger.addEventListener('click', () => {
+                const logout_toast = new bootstrap.Toast(logout_toastLiveExample)
+
+                logout_toast.show();
+            });
+        }
     </script>
 </body>
 
