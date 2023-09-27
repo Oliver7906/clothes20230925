@@ -6,6 +6,7 @@ var Mail;
 var Addr;
 var Phone;
 var level;
+var totalPrice;
 //註冊同意書
 var flag_recheckbox = false;
 //註冊內容格式
@@ -231,13 +232,14 @@ $(function () {
     Mail = data.data[0].userMail;
     Addr = data.data[0].userAddr;
     Phone = data.data[0].userPhone;
+    totalPrice = data.data[0].Total;
     level = data.data[0].Level;
 
     if (data.state) {
       //帳號被啟用
       if (data.data[0].userState == "Y") {
         //登入成功
-        //alert(data.message);
+        alert(data.message);
 
         //將uid01存入cookie
         setCookie("uid01", data.data[0].Uid, 7);
@@ -286,6 +288,6 @@ $(function () {
   function logout() {
     setCookie("uid01", "", 7);
     setCookie("level", " ", 7);
-    location.href ="index.html";
+    location.href = LINKS + "index.html";
   }
 });

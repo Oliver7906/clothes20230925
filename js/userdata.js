@@ -118,7 +118,7 @@ $("#data_u_btn").click(function () {
   }
 });
 
-var totalPrice = 0;
+
 // u_recordModal 監聽按鈕
 $(".u_recordModal").click(function () {
   console.log("text");
@@ -131,8 +131,10 @@ $(".u_recordModal").click(function () {
       console.log(data);
       $("#recode_table").empty();
 
+      
+
       data.data.forEach(function (item) {
-        if (item.c_UserName == Username && item.c_Active == "Y") {
+        if (data.data[0].userName == Username && item.c_Active == "Y") {
           var strHTML =
             '<tr class="text-center"><td>' +
             item.c_Date +
@@ -147,7 +149,7 @@ $(".u_recordModal").click(function () {
           $("#recode_table").append(strHTML);
 
           // 計算每次迴圈出來的價格加到總價格中
-          totalPrice += parseInt(item.c_Price * item.c_Num);
+          totalPrice += parseInt(item.c_Price);
         } else {
           // 如果條件不符合，就是前面寫錯了!
         }
