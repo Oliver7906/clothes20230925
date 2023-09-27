@@ -287,6 +287,7 @@ $(function () {
   function logout() {
     setCookie("uid01", "", 7);
     setCookie("level", " ", 7);
+    $("#out_toast_msg").text("已經登出了");
     location.href = LINKS + "index.html";
   }
 });
