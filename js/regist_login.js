@@ -238,7 +238,7 @@ $(function () {
       //帳號被啟用
       if (data.data[0].userState == "Y") {
         //登入成功
-        alert(data.message);
+        //alert(data.message);
 
         //將uid01存入cookie
         setCookie("uid01", data.data[0].Uid, 7);
