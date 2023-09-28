@@ -369,7 +369,7 @@
                     url: APILINKS +'car_r_api.php',
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data.data);
+                        // console.log(data.data);
                         vm.orderdata = data.data;
 
                         // 每次更新後，使用取得使用者這支方法
@@ -483,7 +483,7 @@
                             }
 
                             // 成功消息
-                            console.log(response);
+                            // console.log(response);
                             alert("刪除成功");
                         },
                         error: function (error) {

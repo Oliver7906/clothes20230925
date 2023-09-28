@@ -177,7 +177,7 @@ $(function () {
       async: false,
       success: function (data) {
         showdata_login(data);
-        console.log(data.state);
+        // console.log(data.state);
 
         // 判斷登入狀態為 Ture 作 Toast 顯示
         if (data.state == true) {
@@ -222,8 +222,8 @@ $(function () {
   }
 
   function showdata_login(data) {
-    console.log(data);
-    console.log('test condition:', data.state);
+    // console.log(data);
+    // console.log('test condition:', data.state);
 
     // 全域變數
     USERID = data.data[0].ID;

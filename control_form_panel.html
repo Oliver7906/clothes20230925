@@ -501,7 +501,7 @@
                         url: APILINKS +'form_r_api.php',
                         dataType: 'json',
                         success: function (data) {
-                            console.log(data.data);
+                            // console.log(data.data);
                             vm.fromdata = data.data;
                             vm.geactive();
                         }
@@ -547,7 +547,7 @@
                             },
                             success: function (response) {
                                 // 成功訊息
-                                console.log(response); // 
+                                // console.log(response);  
                             },
                             error: function () {
 
@@ -571,7 +571,7 @@
                                 }
 
                                 // 成功消息
-                                console.log(response);
+                                // console.log(response);
                                 alert("刪除成功");
                             },
                             error: function (error) {

@@ -30,7 +30,7 @@ $(function () {
   });
 
   function showdata_check_uid(data) {
-    console.log(data);
+    // console.log(data);
     // 全域變數
     USERID = data.data[0].ID;
     Username = data.data[0].userName;

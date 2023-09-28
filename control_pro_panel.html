@@ -231,7 +231,7 @@
 
                 //渲染產品
                 function showdata(data) {
-                    console.log(data);
+                    // console.log(data);
                     $("#mytable").empty();
                     data.data.forEach(function (item) {
                         if (item.p_State == 'Y') {
@@ -301,7 +301,7 @@
                         var p_State, state_id;
                         //變數都要有值才能傳遞至後端 
                         if ($(this).is(':checked')) {
-                            console.log('上架' + $(this).data('id'));
+                            // console.log('上架' + $(this).data('id'));
                             // 可以改變狀態後面的詞
                             p_State = 'Y';
                             state_id = $(this).data('id');
@@ -311,7 +311,7 @@
                         } else {
                             p_State = 'N';
                             state_id = $(this).data('id');
-                            console.log('下架' + $(this).data('id'));
+                            // console.log('下架' + $(this).data('id'));
                             $(this).next().text('下架');
                             $(this).next().removeClass('text-success');
                             $(this).next().addClass('text-danger');
@@ -332,17 +332,17 @@
 
                     // 及時監聽 modal_add_btn
                     $("#modal_add_btn").click(function () {
-                        console.log(fileupload.files[0]);
+                        // console.log(fileupload.files[0]);
 
-                        console.log($("#p_Name").val());
-                        console.log($("#p_Price").val());
-                        console.log($("#p_Text").val());
+                        // console.log($("#p_Name").val());
+                        // console.log($("#p_Price").val());
+                        // console.log($("#p_Text").val());
                         var formData = new FormData();
                         formData.append('file', fileupload.files[0]);
                         formData.append('p_Name', $("#p_Name").val());
                         formData.append('p_Text', $("#p_Text").val());
                         formData.append('p_Price', $("#p_Price").val());
-                        console.log(formData);
+                        // console.log(formData);
 
                         if (flag_p_Name && flag_p_Price && flag_p_Text) {
                             $.ajax({
@@ -361,7 +361,7 @@
                                 }
                             });
                         } else {
-                            console.log("錯誤");
+                            // console.log("錯誤");
                         }
                     });
 
@@ -374,13 +374,13 @@
         };
         $(function () {
             $("#fileupload").change(function () {
-                console.log("test");
-                console.log(fileupload);
-                console.log(fileupload.files[0]);
-                console.log(fileupload.files[0].name);
-                console.log(fileupload.files[0].type);
-                console.log(fileupload.files[0].size);
-                console.log(URL.createObjectURL(fileupload.files[0]));
+                // console.log("test");
+                // console.log(fileupload);
+                // console.log(fileupload.files[0]);
+                // console.log(fileupload.files[0].name);
+                // console.log(fileupload.files[0].type);
+                // console.log(fileupload.files[0].size);
+                // console.log(URL.createObjectURL(fileupload.files[0]));
                 if (fileupload.files[0].type == 'image/png' || fileupload.files[0].type == 'image/jpeg') {
                     $("#previmg").removeClass('d-none');
                     $("#previmg").attr('src', URL.createObjectURL(fileupload.files[0]));
@@ -392,7 +392,7 @@
         });
 
         function show_add_data(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 alert(data.message);
                 location.href = "control_pro_panel.html";
@@ -404,13 +404,13 @@
         //update picture file---------------------------------------------------------------
         $(function () {
             $("#fileupload2").change(function () {
-                console.log("test");
-                console.log(fileupload2);
-                console.log(fileupload2.files[0]);
-                console.log(fileupload2.files[0].name);
-                console.log(fileupload2.files[0].type);
-                console.log(fileupload2.files[0].size);
-                console.log(URL.createObjectURL(fileupload2.files[0]));
+                // console.log("test");
+                // console.log(fileupload2);
+                // console.log(fileupload2.files[0]);
+                // console.log(fileupload2.files[0].name);
+                // console.log(fileupload2.files[0].type);
+                // console.log(fileupload2.files[0].size);
+                // console.log(URL.createObjectURL(fileupload2.files[0]));
                 if (fileupload2.files[0].type == 'image/png' || fileupload2.files[0].type == 'image/jpeg') {
                     $("#update_previmg").removeClass('d-none');
                     $("#update_previmg").attr('src', URL.createObjectURL(fileupload2.files[0]));
@@ -426,7 +426,7 @@
             var formData = new FormData();
             formData.append('userId', updateId);
             formData.append('file', fileupload2.files[0]);
-            console.log(formData);
+            // console.log(formData);
 
             // 將收集完成的資料formData 傳遞至api
             $.ajax({
@@ -449,7 +449,7 @@
         // 圖片檔案上傳
 
         function showdata_uploadFile(data) {
-            console.log(data);
+            // console.log(data);
         }
 
 
@@ -458,11 +458,11 @@
         $(function () {
             // 監聽更新按鈕update_btn
             $("#mytable #update_btn").click(function () {
-                console.log($(this).data("id"));
-                console.log($(this).data("p_name"));
-                console.log($(this).data("p_text"));
-                console.log($(this).data("p_price"));
-                console.log($(this).data("p_pic"));
+                // console.log($(this).data("id"));
+                // console.log($(this).data("p_name"));
+                // console.log($(this).data("p_text"));
+                // console.log($(this).data("p_price"));
+                // console.log($(this).data("p_pic"));
 
                 var U_pic = $(this).data("p_pic");
 
@@ -490,12 +490,12 @@
 
             // 監聽modal更新按鈕 modal_update_btn
             $("#modal_update_btn").click(function () {
-                console.log($("#up_Name").val());
-                console.log($("#up_Text").val());
-                console.log($("#up_Price").val());
-                console.log(fileupload2.files[0]);
+                // console.log($("#up_Name").val());
+                // console.log($("#up_Text").val());
+                // console.log($("#up_Price").val());
+                // console.log(fileupload2.files[0]);
                 // console.log($("#up_Pic").val());
-                console.log(updateId);
+                // console.log(updateId);
                 //傳遞至 update api 執行更新
                 $.ajax({
                     type: "POST",
@@ -565,7 +565,7 @@
 
             //監聽刪除按鈕 delete_btn
             $("#mytable #delete_btn").click(function () {
-                console.log($(this).data("id"));
+                // console.log($(this).data("id"));
 
                 if (confirm("確認刪除?")) {
                     //傳遞至 delete api 執行刪除
@@ -585,7 +585,7 @@
         });
 
         function showdata_updata(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 alert(data.message);
                 location.href = "control_pro_panel.html";
@@ -595,7 +595,7 @@
         }
 
         function showdata_delete(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 alert(data.message);
                 location.href = "control_pro_panel.html";
@@ -605,7 +605,7 @@
         }
 
         function showdata_u_p_State(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 // 帳號更新成功
                 alert(data.message);

@@ -583,7 +583,7 @@
         $(function () {
             $("#pass_btn").click(function () {
                 if (flag_user_name && flag_text && flag_phone && flag_mail) {
-                    console.log("test");
+                    // console.log("test");
                     $.ajax({
                         type: "POST",
                         url: APILINKS +"form_c_api.php",
@@ -597,10 +597,10 @@
                         success: showdata_reg,
                         error: function () {
                             alert("表單輸入錯誤-"+APILINKS +"form_c_api.php");
-                            console.log($("#user_name").val());
-                            console.log($("#phone").val());
-                            console.log($("#mail").val());
-                            console.log($("#qatext").val());
+                            // console.log($("#user_name").val());
+                            // console.log($("#phone").val());
+                            // console.log($("#mail").val());
+                            // console.log($("#qatext").val());
                         }
                     });
                 } else {
@@ -665,7 +665,7 @@
 
 
         function showdata_reg(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 alert(data.message);
                 location.href = "contact.html";

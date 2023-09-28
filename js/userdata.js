@@ -121,14 +121,14 @@ $("#data_u_btn").click(function () {
 
 // u_recordModal 監聽按鈕
 $(".u_recordModal").click(function () {
-  console.log("text");
+  // console.log("text");
   $.ajax({
     type: "GET",
     url: APILINKS + "car_r_api.php",
     dataType: "json",
     // async: false,
     success: function (data) {
-      console.log(data);
+      // console.log(data);
       $("#recode_table").empty();
 
       var totalPrice = 0;
@@ -164,7 +164,7 @@ $(".u_recordModal").click(function () {
 });
 
 function showdata_update_userchange(data) {
-  console.log(data);
+  // console.log(data);
   if (data.state) {
     alert(data.message);
     location.href ="index.html";

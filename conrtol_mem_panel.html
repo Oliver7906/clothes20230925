@@ -183,13 +183,13 @@
                     async: false,
                     success: showdata_table,
                     error: function () {
-                        console.log("error-" + APILINKS + "admin_r_api.php")
+                        alert("error-" + APILINKS + "admin_r_api.php")
                     }
                 });
                 //delete_btn按鈕監聽 要放在主程式
                 $("#mem_table #delete_btn").click(function () {
-                    console.log($(this).data("id"));
-                    console.log($(this).data("username"));
+                    // console.log($(this).data("id"));
+                    // console.log($(this).data("username"));
                     if (confirm("確認刪除: " + $(this).data("username") + "?")) {
                         $.ajax({
                             type: "POST",
@@ -205,11 +205,11 @@
                 });
                 //upadata_btn按鈕監聽 要放在主程式
                 $("#mem_table #updata_btn").click(function () {
-                    console.log($(this).data("id"));
-                    console.log($(this).data("username"));
-                    console.log($(this).data("userphone"));
-                    console.log($(this).data("useraddr"));
-                    console.log($(this).data("usermail"));
+                    // console.log($(this).data("id"));
+                    // console.log($(this).data("username"));
+                    // console.log($(this).data("userphone"));
+                    // console.log($(this).data("useraddr"));
+                    // console.log($(this).data("usermail"));
 
                     $("#username").val($(this).data("username"));
                     $("#userphone").val($(this).data("userphone"));
@@ -221,10 +221,10 @@
 
                 //modal_update_btn按鈕監聽 要放在主程式
                 $("#modal_update_btn").click(function () {
-                    console.log($("#userphone").val());
-                    console.log($("#useraddr").val());
-                    console.log($("#usermail").val());
-                    console.log(u_id);
+                    // console.log($("#userphone").val());
+                    // console.log($("#useraddr").val());
+                    // console.log($("#usermail").val());
+                    // console.log(u_id);
 
                     $.ajax({
                         type: "POST",
@@ -245,7 +245,7 @@
                     var userstate, state_id;
                     //變數都要有值才能傳遞至後端 
                     if ($(this).is(':checked')) {
-                        console.log('啟用' + $(this).data('id'));
+                        // console.log('啟用' + $(this).data('id'));
                         // 可以改變狀態後面的詞
                         userstate = 'Y';
                         state_id = $(this).data('id');
@@ -255,7 +255,7 @@
                     } else {
                         userstate = 'N';
                         state_id = $(this).data('id');
-                        console.log('停權' + $(this).data('id'));
+                        // console.log('停權' + $(this).data('id'));
                         $(this).next().text('停權');
                         $(this).next().removeClass('text-success');
                         $(this).next().addClass('text-danger');
@@ -283,11 +283,11 @@
 
 
         function showdata_table(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 $("#mem_table").empty();
                 data.data.forEach(function (item) {
-                    console.log(item);
+                    // console.log(item);
 
                     if (item.userState == 'Y') {
                         var switch01 = '<div class="text-success mb-3 form-check form-switch"><input type="checkbox" class="form-check-input" role="switch" checked id="switch01" data-id="' + item.ID + '"><label for="" class="form-check-label">啟用</label></div>';
@@ -306,7 +306,7 @@
         }
 
         function showdata_update(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 alert(data.message);
                 location.href = "conrtol_mem_panel.html";
@@ -316,7 +316,7 @@
         }
 
         function showdata_delete(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 alert(data.message);
                 location.href = "conrtol_mem_panel.html";
@@ -335,7 +335,7 @@
         }
 
         function showdata_u_userState(data) {
-            console.log(data);
+            // console.log(data);
             if (data.state) {
                 // 帳號更新成功
                 alert(data.message);
