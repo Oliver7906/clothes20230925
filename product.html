@@ -486,7 +486,7 @@
 
     var A_price;
     function showdata(data) {
-      console.log(data);
+      // console.log(data);
       $("#mytable").empty();
       data.data.forEach(function (item) {
 
@@ -519,17 +519,17 @@
 
     $("#mytable").on("click", "#buy_btn", function (event) {
     event.preventDefault();
-      console.log("test");
+      // console.log("test");
 
       pName = $(this).data("pname");   // 產品名稱
       pPrice = $(this).data("price");  // 普通會員的價格
       aPrice = $(this).data("aprice"); // 高級會員的價格
       pNum = $(this).siblings(".card-body").find("#pnum").val(); // 輸入框的值
 
-      console.log(pName);
-      console.log(pPrice);
-      console.log(aPrice);
-      console.log(pNum);
+      // console.log(pName);
+      // console.log(pPrice);
+      // console.log(aPrice);
+      // console.log(pNum);
 
       if (getCookie("uid01") !== "") {
         // 判斷當登入為高級會員時 所購買產品價格的值
@@ -564,15 +564,15 @@
     });
 
     function showdata_buy(data) {
-      console.log(pName);
-      console.log(pPrice);
-      console.log(aPrice);
-      console.log(pNum);
-      console.log(Username);
-      console.log(Mail);
-      console.log(Addr);
-      console.log(Phone);
-      console.log(data);
+      // console.log(pName);
+      // console.log(pPrice);
+      // console.log(aPrice);
+      // console.log(pNum);
+      // console.log(Username);
+      // console.log(Mail);
+      // console.log(Addr);
+      // console.log(Phone);
+      // console.log(data);
       if (data.state) {
         alert(data.message);
         // location.href = "product.html";
