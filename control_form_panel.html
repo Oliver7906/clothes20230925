@@ -460,129 +460,129 @@
                             <td data-th="已讀"><span class="table-col">{{item.f_Active}}</span></td>
                             <td>
                                 <a href="#" class="btn btn-danger" @click="deleteContent(item.ID)">刪除</a>
-                                
+
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+    </div>
 
 
 
 
 
+    <script src="js/js_bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/publiclink.js"></script>
+    <script src="js/regist_login.js"></script>
+    <script src="js/uid01.js"></script>
+    <script src="js/userdata.js"></script>
 
-        <script src="js/js_bootstrap.bundle.min.js"></script>
-        <script src="js/jquery-3.7.0.min.js"></script>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-        <script src="js/publiclink.js"></script>
-        <script src="js/regist_login.js"></script>
-        <script src="js/uid01.js"></script>
-        <script src="js/userdata.js"></script>
-
-        <script>
-            const App = {
-                data() {
-                    return {
-                        fromdata: [],
-                        ynactive: [],
-                        active: '',
-                        selectedItemContent: '', // 抓f_Text內容用的 不然會只抓到第一筆
-                        updateactive: '',
-                        item: {},
+    <script>
+        const App = {
+            data() {
+                return {
+                    fromdata: [],
+                    ynactive: [],
+                    active: '',
+                    selectedItemContent: '', // 抓f_Text內容用的 不然會只抓到第一筆
+                    updateactive: '',
+                    item: {},
+                }
+            },
+            created() {
+                var readstate, state_id;
+                const vm = this;
+                $.ajax({
+                    url: APILINKS + 'form_r_api.php',
+                    dataType: 'json',
+                    success: function (data) {
+                        // console.log(data.data);
+                        vm.fromdata = data.data;
+                        vm.geactive();
                     }
-                },
-                created() {
-                    var readstate, state_id;
+                });
+
+            },
+            computed: {
+                filterData() {
                     const vm = this;
-                    $.ajax({
-                        url: APILINKS +'form_r_api.php',
-                        dataType: 'json',
-                        success: function (data) {
-                            // console.log(data.data);
-                            vm.fromdata = data.data;
-                            vm.geactive();
-                        }
+                    let items = [];
+
+                    if (vm.active != '') {
+                        items = vm.fromdata.filter((item, key) => {
+                            return item.f_Active == vm.active
+                        })
+                    } else {
+                        items = vm.fromdata;
+                    }
+                    return items;
+                },
+            },
+            methods: {
+                geactive() {
+                    const vm = this;
+                    const ynactive = new Set();
+
+                    vm.fromdata.forEach((item, key) => {
+                        ynactive.add(item.f_Active);
                     });
 
+                    vm.ynactive = Array.from(ynactive);
                 },
-                computed: {
-                    filterData() {
-                        const vm = this;
-                        let items = [];
+                showContent(item) {
+                    // 在點擊 "顯示內容" 按鈕後，將 item 的 f_Active 值設為 'Y'
+                    item.f_Active = 'Y';
 
-                        if (vm.active != '') {
-                            items = vm.fromdata.filter((item, key) => {
-                                return item.f_Active == vm.active
-                            })
-                        } else {
-                            items = vm.fromdata;
+                    $.ajax({
+                        url: APILINKS + 'form_u_api.php',
+                        method: 'POST',
+                        data: {
+                            id: item.ID, // 傳遞要更新的資料ID
+                            active: 'Y' // 狀態更新為Y 
+                        },
+                        success: function (response) {
+                            // 成功訊息
+                            // console.log(response);  
+                        },
+                        error: function () {
+
+                            console.error(error); // 記錄錯誤訊息
                         }
-                        return items;
-                    },
+                    });
                 },
-                methods: {
-                    geactive() {
-                        const vm = this;
-                        const ynactive = new Set();
-
-                        vm.fromdata.forEach((item, key) => {
-                            ynactive.add(item.f_Active);
-                        });
-
-                        vm.ynactive = Array.from(ynactive);
-                    },
-                    showContent(item) {
-                        // 在點擊 "顯示內容" 按鈕後，將 item 的 f_Active 值設為 'Y'
-                        item.f_Active = 'Y';
-
-                        $.ajax({
-                            url: APILINKS +'form_u_api.php',
-                            method: 'POST',
-                            data: {
-                                id: item.ID, // 傳遞要更新的資料ID
-                                active: 'Y' // 狀態更新為Y 
-                            },
-                            success: function (response) {
-                                // 成功訊息
-                                // console.log(response);  
-                            },
-                            error: function () {
-
-                                console.error(error); // 記錄錯誤訊息
+                deleteContent(id) {
+                    const vm = this;
+                    $.ajax({
+                        url: APILINKS + 'form_d_api.php',
+                        method: 'POST',
+                        data: {
+                            id: id // 傳送要刪除的id
+                        },
+                        success: function (response) {
+                            // 成功刪除後 從vue中移除的項目
+                            const indexToDelete = vm.fromdata.findIndex(item => item.ID === id);
+                            if (indexToDelete !== -1) {
+                                vm.fromdata.splice(indexToDelete, 1);
                             }
-                        });
-                    },
-                    deleteContent(id) {
-                        const vm = this;
-                        $.ajax({
-                            url: APILINKS +'form_d_api.php',
-                            method: 'POST',
-                            data: {
-                                id: id // 傳送要刪除的id
-                            },
-                            success: function (response) {
-                                // 成功刪除後 從vue中移除的項目
-                                const indexToDelete = vm.fromdata.findIndex(item => item.ID === id);
-                                if (indexToDelete !== -1) {
-                                    vm.fromdata.splice(indexToDelete, 1);
-                                }
 
-                                // 成功消息
-                                // console.log(response);
-                                alert("刪除成功");
-                            },
-                            error: function (error) {
-                                console.error(error); // 錯誤訊息
-                            }
-                        });
-                    }
+                            // 成功消息
+                            // console.log(response);
+                            alert("刪除成功");
+                        },
+                        error: function (error) {
+                            console.error(error); // 錯誤訊息
+                        }
+                    });
                 }
             }
-            Vue.createApp(App).mount('#app');
-        </script>
+        }
+        Vue.createApp(App).mount('#app');
+    </script>
 
 </body>
 
