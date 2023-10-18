@@ -105,6 +105,8 @@
             margin-right: 10px;
             text-decoration: none;
         }
+
+        
     </style>
 </head>
 
@@ -161,7 +163,7 @@
             </div>
         </div>
     </section>
-    
+
     <!--loginModal-->
     <!-- Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -275,7 +277,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- login_Toasts -->
     <section id="login_toast_windows" class="">
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
@@ -293,7 +295,7 @@
             </div>
         </div>
     </section>
-    
+
 
 
     <!-- mssage user modal -->
@@ -471,10 +473,11 @@
 
     <!--s20 banner -->
     <!-- banner圖片 -->
-    <section id="s20" class="bg-cover banner_image" style="background-image: url(images/index/index_theme01.jpg);">
+    <section id="s20" class="bg-cover banner_image d-none d-lg-block" style="background-image: url(images/index/index_theme01.jpg);">
+        
     </section>
-
-
+    
+    <img src="images/index/index_theme01.jpg" style="width: 100%;" class="bg-cover d-sm-block d-lg-none" alt="">
     <!--s30 -->
     <section id="" class="categories mt-3">
         <div class="container-fluid">
@@ -768,11 +771,11 @@
         $(function () {
             $.ajax({
                 type: "GET",
-                url: APILINKS +"index_charjs-api.php",
+                url: APILINKS + "index_charjs-api.php",
                 dataType: "json",
                 success: showdata,
                 error: function () {
-                    alert("error-"+ APILINKS +"index_charjs-api.php");
+                    alert("error-" + APILINKS + "index_charjs-api.php");
                 }
             });
         });
@@ -838,7 +841,7 @@
                 toast.show();
             });
         }
-        
+
 
     </script>
 </body>
